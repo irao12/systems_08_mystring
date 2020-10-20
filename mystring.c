@@ -72,12 +72,3 @@ char * mystrchr( char *s, char c ){
     }
     return NULL;
 }
-
-int main (){
-  char s1[256] = "apple";
-  char s2[256] = "banana";
-  char s3[256] = "applegate";
-  char s4[256] = "apple";
-
-  printf("%d", mystrcmp(s3,s1));
-}
