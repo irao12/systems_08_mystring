@@ -57,20 +57,11 @@ char * mystrncat( char *dest, char *source, int n){
 int mystrcmp( char *s1, char *s2 ){
   int result;
   int i = 0;
-  while (s1[i]){
-    if (s1[i] > s2[i]) {
-      result = 1;
-      break;
-    }
-    if (s1[i] < s2[i]) {
-      result = -1;
-      break;
-    }
+  while (s1[i] == s2[i]){
+    if (!s1[i]) return 0;
     i++;
   }
-  if (!s1[i] && s2[i]) result = -1;
-  else if ((!s1[i])&&(!s2[i])) result = 0;
-  return result;
+  return (s1[i] - s2[i]);
 }
 
 char * mystrchr( char *s, char c ){
@@ -80,4 +71,13 @@ char * mystrchr( char *s, char c ){
       if (s[i] == c) return (s+i);
     }
     return NULL;
+}
+
+int main (){
+  char s1[256] = "apple";
+  char s2[256] = "banana";
+  char s3[256] = "applegate";
+  char s4[256] = "apple";
+
+  printf("%d", mystrcmp(s3,s1));
 }
